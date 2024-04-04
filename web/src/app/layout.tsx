@@ -8,6 +8,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
 	title: "Artists Toolkit",
 	description: "Artists tools in one box!",
+	other: {
+		"google-adsense-account": "ca-pub-3460996262501243",
+	},
 };
 
 export default function RootLayout({

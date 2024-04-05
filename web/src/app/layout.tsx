@@ -22,9 +22,7 @@ export default function RootLayout({
 		<html lang="en">
 			<body className={inter.className}>
 				<Header />
-				<main className="flex justify-center items-center bg-slate-50">
-					{children}
-				</main>
+				<main className=" bg-slate-50">{children}</main>
 			</body>
 		</html>
 	);

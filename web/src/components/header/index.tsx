@@ -52,9 +52,9 @@ export default function Header() {
 												href={item.pathname}
 												className={classNames(
 													pathname == item.pathname
-														? "bg-gray-900 text-white"
-														: "text-gray-300 hover:bg-gray-700 hover:text-white",
-													"rounded-md px-3 py-2 text-sm font-medium"
+														? "bg-slate-300/10 text-slate-200"
+														: "text-gray-300 hover:bg-slate-600/30 hover:text-white",
+													"rounded-md px-3 py-2 text-sm font-medium active:bg-slate-800/30"
 												)}
 												aria-current={
 													pathname == item.pathname ? "page" : undefined
@@ -78,8 +78,9 @@ export default function Header() {
 									href={item.pathname}
 									className={classNames(
 										pathname == item.pathname
-											? "bg-gray-900 text-white"
-											: "text-gray-300 hover:bg-gray-700 hover:text-white",
+											? "bg-slate-300/10 text-slate-200"
+											: "text-gray-300 hover:bg-slate-600/30 hover:text-white",
+
 										"block rounded-md px-3 py-2 text-base font-medium"
 									)}
 									aria-current={pathname == item.pathname ? "page" : undefined}

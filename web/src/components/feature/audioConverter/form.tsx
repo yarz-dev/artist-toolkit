@@ -44,29 +44,40 @@ export default function AudioForm() {
 
 		const formData = new FormData();
 
-		// formData.append("audioFiles", files);
+		formData.append("conversionType", selected.name);
 
-		const response = await convertAudio(formData);
+		files?.forEach((file) => {
+			formData.append("audioFiles", file);
+		});
 
-		// if (response.ok) {
-		// 	const blob = await response.blob();
-		// 	const url = window.URL.createObjectURL(blob);
-		// 	const a = document.createElement("a");
-		// 	a.style.display = "none";
-		// 	a.href = url;
-		// 	a.download = "converted.mp3";
-		// 	document.body.appendChild(a);
-		// 	a.click();
-		// 	window.URL.revokeObjectURL(url);
-		// } else {
-		// 	alert("Failed to convert audio");
-		// }
+		const response = await fetch("/api/audio-tools/converter", {
+			method: "POST",
+			body: formData,
+		});
+
+		alert(response.ok);
+
+		if (response.ok) {
+			const blob = await response.blob();
+			console.log(blob);
+			// const url = window.URL.createObjectURL(blob);
+			// const a = document.createElement("a");
+			// a.style.display = "none";
+			// a.href = url;
+			// a.download = "converted.mp3";
+			// document.body.appendChild(a);
+			// a.click();
+			// window.URL.revokeObjectURL(url);
+		} else {
+			alert("Failed to convert audio");
+		}
 	};
 
 	return (
 		<div className="w-full flex flex-col justify-center items-center py-10">
 			<FeatureCard>
 				<form
+					encType="multipart/form-data"
 					onSubmit={(e) => handleUpload(e)}
 					className="flex flex-col justify-center items-center p-3 w-[100%] h-[100%]"
 				>
